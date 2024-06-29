@@ -11,7 +11,7 @@ import PIL
 import smtplib
 
 base_url="https://api.openweathermap.org/data/2.5/weather?"
-api_key="efcaf47a78df5a3ae48c649969526169"
+api_key=" "
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -61,7 +61,7 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('aiassitant.jarvis@gmail.com', 'tjjjokvbafczmgro')
+    server.login('aiassitant.jarvis@gmail.com', 'Password')
     server.sendmail('aiassitant.jarvis@gmail.com', to, content)
     server.close()
 
@@ -79,7 +79,7 @@ def Main():
             
     elif "news" in query:
         speak("Today's News")
-        a=requests.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=f6db5e88148d468aa2237314761068c5")
+        a=requests.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=f6db5e88148d468aa2234761068c5")
         b=json.loads(a.text)
         for i in range(5):
             dataa=b['articles'][i]['title']
@@ -100,9 +100,6 @@ def Main():
         day = datetime.datetime.now().strftime("%A")
         print(day)
         speak(day)
-
-    elif "are you single" in query:
-        speak("Personal question, but let me tell you. i'm in relationship with wi-fi")
             
     elif 'open youtube' in query:
         speak("opening youtube")
@@ -173,34 +170,31 @@ def Main():
         
     elif 'i am fine' in query:
         speak("good to know, what should i do for you sir")
-    
-    elif "who created you" in query:
-        print("Mr. Akshat")
-        speak("Mister Akshat Gupta")
+
         
     elif "introduce yourself" in query:
-        speak("I'm an AI Assistant of Mister Akshat Gupta   named JARVIS. speed ten zettaBytes. Memory 20 YottaBytes. ")
+        speak("I'm an AI Assistant of Mister Akshat   named JARVIS. speed ten zettaBytes. Memory 20 YottaBytes. ")
         
     elif "turn on the light" in query:
         print("Turning on")
         speak("Turning on")
-        url4="http://188.166.206.43/085b9b57c39b480ab1d7bca27ee5ffe5/update/D16?value=0"
+        url4="http://188.166.206.43/085b9b57cb1d7bca27ee5ffe5/update/D16?value=0"
         wb.open(url4)
         
     elif "turn off the light" in query:
         print("Turning off")
         speak('Turning off')
-        url5="http://188.166.206.43/085b9b57c39b480ab1d7bca27ee5ffe5/update/D16?value=1"
+        url5="http://188.166.206.43/085b9b57cb1d7bca27ee5ffe5/update/D16?value=1"
         wb.open(url5)
         
     elif "switch on" in query:
         speak("turning on")
-        url6="http://188.166.206.43/085b9b57c39b480ab1d7bca27ee5ffe5/update/D5?value=0"
+        url6="http://188.166.206.43/085b9b57c39b41d7bca27ee5ffe5/update/D5?value=0"
         wb.open(url6)
         
     elif "switch off" in query:
         speak("turning off")
-        url7="http://188.166.206.43/085b9b57c39b480ab1d7bca27ee5ffe5/update/D5?value=1"
+        url7="http://188.166.206.43/085b9b57c39b41d7bca27ee5ffe5/update/D5?value=1"
         wb.open(url7)
         
     elif "joke" in query:
@@ -212,7 +206,7 @@ def Main():
         try:
             speak("What should I say?")
             content = Listen()
-            to = "akshat98770@gmail.com"    
+            to = "sendermail@gmail.com"    
             sendEmail(to, content)
             print("Email has been sent!")
             speak("Email has been sent!")
